@@ -1,0 +1,77 @@
+info: 18.04.2023 14:54:12: Listen port: 5002
+info: 18.04.2023 14:54:12: Server running 'http://localhost:5002'
+info: 18.04.2023 14:54:12: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 14:54:12: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:06:23: Listen port: 5002
+info: 18.04.2023 15:06:23: Server running 'http://localhost:5002'
+info: 18.04.2023 15:06:23: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:06:23: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:07:34: Listen port: 5002
+info: 18.04.2023 15:07:34: Server running 'http://localhost:5002'
+info: 18.04.2023 15:07:34: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:07:34: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:10:04: Listen port: 5002
+info: 18.04.2023 15:10:04: Server running 'http://localhost:5002'
+info: 18.04.2023 15:10:04: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:10:04: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:10:19: Listen port: 5002
+info: 18.04.2023 15:10:19: Server running 'http://localhost:5002'
+info: 18.04.2023 15:10:19: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:10:19: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:15:30: Listen port: 5002
+info: 18.04.2023 15:15:30: Server running 'http://localhost:5002'
+info: 18.04.2023 15:15:30: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:15:30: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:15:40: Listen port: 5002
+info: 18.04.2023 15:15:40: Server running 'http://localhost:5002'
+info: 18.04.2023 15:15:40: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:15:40: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:16:53: Listen port: 5002
+info: 18.04.2023 15:16:53: Server running 'http://localhost:5002'
+info: 18.04.2023 15:16:53: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:16:53: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:19:06: Listen port: 5002
+info: 18.04.2023 15:19:06: Server running 'http://localhost:5002'
+info: 18.04.2023 15:19:06: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:19:06: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:19:55: Listen port: 5002
+info: 18.04.2023 15:19:55: Server running 'http://localhost:5002'
+info: 18.04.2023 15:19:55: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:19:55: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:22:43: Listen port: 5002
+info: 18.04.2023 15:22:43: Server running 'http://localhost:5002'
+info: 18.04.2023 15:22:43: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:22:43: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:25:13: Listen port: 5002
+info: 18.04.2023 15:25:13: Server running 'http://localhost:5002'
+info: 18.04.2023 15:25:13: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:25:13: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:29:08: Listen port: 5002
+info: 18.04.2023 15:29:08: Server running 'http://localhost:5002'
+info: 18.04.2023 15:29:08: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:29:08: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:31:40: Listen port: 5002
+info: 18.04.2023 15:31:40: Server running 'http://localhost:5002'
+info: 18.04.2023 15:31:40: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:31:40: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:36:53: Listen port: 5002
+info: 18.04.2023 15:36:53: Server running 'http://localhost:5002'
+info: 18.04.2023 15:36:53: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:36:53: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:39:12: Listen port: 5002
+info: 18.04.2023 15:39:12: Server running 'http://localhost:5002'
+info: 18.04.2023 15:39:12: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:39:12: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:39:22: GET /posts/1: success
+info: 18.04.2023 15:46:53: Listen port: 5002
+info: 18.04.2023 15:46:53: Server running 'http://localhost:5002'
+info: 18.04.2023 15:46:53: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:46:53: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:47:25: Listen port: 5002
+info: 18.04.2023 15:47:25: Server running 'http://localhost:5002'
+info: 18.04.2023 15:47:25: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:47:26: Connected with database: raccoon and host: localhost as user: postgres
+info: 18.04.2023 15:55:52: Listen port: 5002
+info: 18.04.2023 15:55:52: Server running 'http://localhost:5002'
+info: 18.04.2023 15:55:52: Swagger running 'http://localhost:5002/swagger'
+info: 18.04.2023 15:55:52: Connected with database: raccoon and host: localhost as user: postgres
