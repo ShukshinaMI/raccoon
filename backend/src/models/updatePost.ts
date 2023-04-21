@@ -1,5 +1,6 @@
 export interface UpdatePost {
-    title: string;
-    description: string;
-    likes: string;
+  postId: number;
+  title: string;
+  description?: string;
+  likes: number;
 }

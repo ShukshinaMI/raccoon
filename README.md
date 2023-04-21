@@ -45,29 +45,34 @@
 │    ├── src
 │    │   ├── controllers
 │    │   ├── dbconfig
+│    │   ├── helpers
 │    │   ├── models
-│    │   └── routes
+│    │   ├── routes
+│    │   └── utils
 │    ├── .gitignore
+│    ├── .prettierrc
 │    ├── app.ts
 │    ├── package.json
-│    ├── prettier.config.js
+│    ├── package-lock.json
 │    ├── server.ts
-│    ├── tsconfig.json
+│    ├── swagger.json
+│    └── tsconfig.json
 ├── frontend
 │    ├── public
 │    ├── src
-│    │   ├── controllers
-│    │   │   └── posts.ts
-│    │   ├── dbconfig
-│    │   │   └── dbconnector.ts
-│    │   ├── models
-│    │   │   └── post.ts
-│    │   ├── routes
-│    │   │   └── posts.ts
+│    │   ├── api
+│    │   ├── core
+│    │   ├── helpers
+│    │   ├── icons
+│    │   ├── pages
+│    │   └── shared
 │    ├── .gitignore
+│    ├── .prettierrc
 │    ├── package.json
-│    ├── prettier.config.js
-│    ├── tsconfig.json
+│    ├── package-lock.json
+│    └── tsconfig.json
+├── raccoon.sql
+├── UML.drawio
 └── README.md
 ```
 
@@ -81,8 +86,9 @@
  database: 'db_dbname',
  host: 'db_host',
 ``` 
-#### 2. Для установки всех зависимостей запустить скрипт `npm install`
-#### 3. Запустить скрипт `npm run start`
+#### 1. Для установки всех зависимостей запустить скрипт `npm install`
+#### 2. запустить скрипт сборки `npm build`
+#### 3. Запустить скрипт `npm run server`
 
 ### FRONTEND
 #### 1. Для установки всех зависимостей запустить скрипт `npm install`

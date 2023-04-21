@@ -32,7 +32,7 @@ class PostsController {
 
       const sql = `SELECT * FROM posts WHERE "postId" = ${id}`;
       const { rows } = await client.query(sql);
-      const post = rows;
+      const post = rows[0];
 
       client.release();
 
@@ -70,9 +70,9 @@ class PostsController {
       const pool = new DBConnector(dbClient);
       const client = await pool.connect();
 
-      const { id, title, description, likes } = req.body;
+      const { postId, title, description, likes } = req.body;
 
-      const sql = `UPDATE posts SET title = '${title}', description = '${description}', likes = ${likes} WHERE "postId" = ${id}`;
+      const sql = `UPDATE posts SET title = '${title}', description = '${description}', likes = ${likes} WHERE "postId" = ${postId}`;
       await client.query(sql);
 
       client.release();

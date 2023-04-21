@@ -68,19 +68,10 @@
         }
       }
     },
-    "/posts/update/{id}": {
+    "/posts/update": {
       "patch": {
         "tags": ["Posts"],
         "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "number",
-              "format": "uuid"
-            }
-          },
           {
             "in": "body",
             "name": "Post",
@@ -138,13 +129,13 @@
   "definitions": {
     "Post": {
       "required": [
-        "id",
+        "postId",
         "title",
         "dateCreate",
         "likes"
       ],
       "properties": {
-        "id": {
+        "postId": {
           "type": "integer",
           "uniqueItems": true
         },
@@ -180,8 +171,12 @@
       }
     },
     "UpdatePost": {
-      "required": ["title", "description", "likes"],
+      "required": ["postId","title", "description", "likes"],
       "properties": {
+        "postId": {
+          "type": "integer",
+          "uniqueItems": true
+        },
         "title": {
           "type": "string"
         },

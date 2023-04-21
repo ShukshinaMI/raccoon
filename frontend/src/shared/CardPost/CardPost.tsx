@@ -1,65 +1,115 @@
-import "./CardPost.scss";
 import { Avatar, Button, Card, Space, Tooltip } from "antd";
-import { HeartOutlined, CommentOutlined, EditOutlined, EllipsisOutlined } from "@ant-design/icons";
+import { HeartOutlined, CommentOutlined, EditOutlined, DeleteOutlined, UserOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import { PostModel, UserModel } from "../../api/Api";
-import { UserOutlined } from "@ant-design/icons";
+import { PostModel, UpdatePostModel, UserModel } from "../../api/Api";
 import Meta from "antd/es/card/Meta";
+import apiClient from "../../ApiClient";
+import { useNavigate } from "react-router-dom";
+import Tags from "../Tags/Tags";
+import cn from "classnames";
+import "./CardPost.scss";
 
 interface CardFormProps {
-    post: PostModel;
-    author?: UserModel;
+  post: PostModel;
+  author?: UserModel;
+  refresh: () => void;
+  className?: string;
 }
 
-function CardPost({ post, author }: CardFormProps) {
-    const [loading, setLoading] = useState(false);
+function CardPost({ post, refresh, className }: CardFormProps) {
+  const [loading, setLoading] = useState(false);
 
-    const { title, description } = post;
+  const { title, description } = post;
+  let navigate = useNavigate();
 
-    const titleCard = (
-        <Space>
-            <Avatar size={40} icon={<UserOutlined />} />
-            <h4>baaby_an</h4>
-        </Space>
-    );
+  const titleCard = (
+    <Space>
+      <Avatar size={40} icon={<UserOutlined />} />
+      <h4>baaby_an</h4>
+    </Space>
+  );
 
-    const statisticsCard = (
-        <Space>
-            <h5 style={{ margin: 0 }}>Понравилось: {post.likes}</h5>
-        </Space>
-    );
+  const statisticsCard = (
+    <Space>
+      <h5 style={{ margin: 0 }}>Понравилось: {post.likes}</h5>
+    </Space>
+  );
 
-    const actionsCard = (
-        <Space style={{ marginTop: 20 }}>
-            <Tooltip color="#C2C6CC" title="Поставить лайк">
-                <Button icon={<HeartOutlined />} />
-            </Tooltip>
-            <Tooltip color="#C2C6CC" title="Оставить комментарий">
-                <Button icon={<CommentOutlined />} />
-            </Tooltip>
-        </Space>
-    );
+  const mapPostToUpdatePostData = (): UpdatePostModel => {
+    return {
+      postId: post.postId,
+      title: post.title,
+      description: post.description,
+      likes: post.likes,
+    };
+  };
 
-    return (
-        <Card
-            loading={loading}
-            style={{ marginBottom: 20 }}
-            className="card-post"
-            bordered={false}
-            hoverable
-            title={titleCard}
-            cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
-            actions={[
-                <Tooltip color="#C2C6CC" title="Редактировать запись">
-                    <Button icon={<EditOutlined key="edit" />} />
-                </Tooltip>,
-                <Button icon={<EllipsisOutlined key="ellipsis" />} />,
-            ]}>
-            {statisticsCard}
-            <Meta style={{ marginTop: 10 }} title={title} description={description} />
-            {actionsCard}
-        </Card>
-    );
+  const onSetLike = (e: any) => {
+    setLoading(true);
+    apiClient.api.updatePostData(post.postId, { ...mapPostToUpdatePostData(), likes: post.likes + 1 }).then(() => {
+      refresh();
+      setLoading(false);
+    });
+    e.stopPropagation();
+  };
+
+  const onEdit = (e: any) => {
+    navigate(`/posts/edit/${post.postId}`);
+    e.stopPropagation();
+  };
+
+  const onDelete = (e: any) => {
+    setLoading(true);
+    apiClient.api.deletePostData(post.postId).then(() => {
+      refresh();
+      setLoading(false);
+    });
+    e.stopPropagation();
+  };
+
+  const onViewCard = () => {
+    navigate(`/posts/view/${post.postId}`);
+  };
+
+  // TODO: добавить изображения + tags
+  // cover={
+  //   post.images && (
+  //       <Carousel autoplay>
+  //         {post.images.map((image) => {
+  //           return <img alt="example" src={image} />;
+  //         })}
+  //       </Carousel>
+  //   )
+  // }
+
+  return (
+    <>
+      <Card
+        loading={loading}
+        style={{ marginBottom: 20 }}
+        className={cn("card-post", className)}
+        bordered={false}
+        hoverable
+        onClick={onViewCard}
+        title={titleCard}
+        actions={[
+          <Tooltip key="like" color="#C2C6CC" title="Поставить лайк">
+            <Button icon={<HeartOutlined />} onClick={(e) => onSetLike(e)} />
+          </Tooltip>,
+          <Tooltip key="comment" color="#C2C6CC" title="Оставить комментарий">
+            <Button icon={<CommentOutlined />} />
+          </Tooltip>,
+          <Tooltip key="edit" color="#C2C6CC" title="Редактировать запись">
+            <Button icon={<EditOutlined />} onClick={(e) => onEdit(e)} />
+          </Tooltip>,
+          <Button key="ellipsis" icon={<DeleteOutlined />} onClick={(e) => onDelete(e)} />,
+        ]}>
+        {statisticsCard}
+        <Meta style={{ marginTop: 10 }} title={title} description={description} />
+        <Tags style={{ marginTop: 10 }} />
+      </Card>
+    </>
+  );
 }
 
 export default CardPost;

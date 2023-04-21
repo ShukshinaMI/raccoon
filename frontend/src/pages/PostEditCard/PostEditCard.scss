@@ -1,0 +1,19 @@
+.post-edit-card.ant-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 100%;
+  margin: 60px;
+  overflow: hidden;
+
+  .ant-card-body {
+    order: 4;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.post-edit-card__button-back {
+  position: sticky;
+  top: 20px;
+}
