@@ -19,7 +19,7 @@ interface CardFormProps {
 function CardPost({ post, refresh, className }: CardFormProps) {
   const [loading, setLoading] = useState(false);
 
-  const { title, description } = post;
+  const { title, description, tags } = post;
   let navigate = useNavigate();
 
   const titleCard = (
@@ -41,6 +41,7 @@ function CardPost({ post, refresh, className }: CardFormProps) {
       title: post.title,
       description: post.description,
       likes: post.likes,
+      tags: post.tags,
     };
   };
 
@@ -50,6 +51,11 @@ function CardPost({ post, refresh, className }: CardFormProps) {
       refresh();
       setLoading(false);
     });
+    e.stopPropagation();
+  };
+
+  const onOnEddComment = (e: any) => {
+    // TODO
     e.stopPropagation();
   };
 
@@ -71,7 +77,7 @@ function CardPost({ post, refresh, className }: CardFormProps) {
     navigate(`/posts/view/${post.postId}`);
   };
 
-  // TODO: добавить изображения + tags
+  // TODO: добавить изображения
   // cover={
   //   post.images && (
   //       <Carousel autoplay>
@@ -97,7 +103,7 @@ function CardPost({ post, refresh, className }: CardFormProps) {
             <Button icon={<HeartOutlined />} onClick={(e) => onSetLike(e)} />
           </Tooltip>,
           <Tooltip key="comment" color="#C2C6CC" title="Оставить комментарий">
-            <Button icon={<CommentOutlined />} />
+            <Button icon={<CommentOutlined />} onClick={(e) => onOnEddComment(e)} />
           </Tooltip>,
           <Tooltip key="edit" color="#C2C6CC" title="Редактировать запись">
             <Button icon={<EditOutlined />} onClick={(e) => onEdit(e)} />
@@ -106,7 +112,7 @@ function CardPost({ post, refresh, className }: CardFormProps) {
         ]}>
         {statisticsCard}
         <Meta style={{ marginTop: 10 }} title={title} description={description} />
-        <Tags style={{ marginTop: 10 }} />
+        <Tags style={{ marginTop: 20 }} value={tags} />
       </Card>
     </>
   );

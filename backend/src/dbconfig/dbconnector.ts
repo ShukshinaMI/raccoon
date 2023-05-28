@@ -1,20 +1,14 @@
-import { Pool, PoolClient, PoolConfig } from "pg";
-import logger from "../utils/logger/logger";
+import { Pool } from "pg";
+import dbconfig from "./dbconfig";
 
-class DBConnector {
-  private readonly _pool: Pool;
+let mainPool: Pool;
 
-  constructor(dbConfig: PoolConfig) {
-    this._pool = new Pool(dbConfig);
-
-    this._pool.on("error", (err: Error) => {
-      logger.error(`Error:\n${err.message}\n${err.stack}`);
-    });
+const getPool = () => {
+  if (!mainPool) {
+    mainPool = new Pool(dbconfig);
   }
 
-  connect(): Promise<PoolClient> {
-    return this._pool.connect();
-  }
-}
+  return mainPool;
+};
 
-export default DBConnector;
+export default getPool;

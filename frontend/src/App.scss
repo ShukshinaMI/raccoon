@@ -3,7 +3,8 @@
   flex-direction: column;
   height: 100%;
   background-color: #f0f3f7;
-  overflow: hidden;
+  overflow-x: auto;
+  min-width: 900px;
 }
 
 .header {

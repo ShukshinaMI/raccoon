@@ -16,13 +16,12 @@ const cardNameFields: FormNames<PostModel> = {
   description: "description",
   dateCreate: "dateCreate",
   likes: "likes",
-  images: "images",
   tags: "tags",
 };
 
 const DEFAULT_CARD_VALUES: AddPostModel = {
   title: "",
-  images: [],
+  description: "",
   tags: [],
 };
 
@@ -61,6 +60,7 @@ export const PostEditCard = ({ isEdit }: PostEditCardProps) => {
           title: values.title,
           description: values.description,
           likes: values.likes,
+          tags: values.tags,
         })
         .then(() => navigateBack())
         .finally(() => setLoading(true));
@@ -114,7 +114,7 @@ export const PostEditCard = ({ isEdit }: PostEditCardProps) => {
               <TextArea showCount maxLength={500} />
             </Form.Item>
 
-            <Form.Item name={cardNameFields.images}>
+            <Form.Item name={"images"} hidden>
               <ImageList />
             </Form.Item>
 

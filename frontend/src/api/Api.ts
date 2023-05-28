@@ -6,8 +6,7 @@ export interface PostModel {
   description?: string;
   dateCreate: string;
   likes: number;
-  images?: any[];
-  tags?: any[];
+  tags?: string[];
 }
 
 export interface UpdatePostModel {
@@ -15,12 +14,12 @@ export interface UpdatePostModel {
   title: string;
   description?: string;
   likes: number;
+  tags?: string[];
 }
 
 export interface AddPostModel {
   title: string;
   description?: string;
-  images?: any[];
   tags?: string[];
 }
 
@@ -33,7 +32,7 @@ export interface UserModel {
 
 export class Api {
   api = {
-    getPostsData: async () => axios.get("/posts"),
+    getPostsData: async (data: { searchString: string; searchType: string }) => axios.post("/posts", data),
 
     getPostData: async (id: number) => axios.get(`/posts/${id}`),
 
