@@ -1,7 +1,9 @@
+import "dotenv/config";
 import Server from "./server";
 import logger from "./src/utils/logger/logger";
+import { environment } from "./src/environments/environments";
 
-const port = 5002;
+const port = environment.port;
 
 const starter = new Server()
   .start(port)

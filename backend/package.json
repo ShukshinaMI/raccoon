@@ -10,7 +10,8 @@
     "build": "npx tsc",
     "start-server": "node dist/src/app.js",
     "dev-start-server": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/app.js\"",
-    "swagger-autogen": "node dist/src/src/utils/swagger/swagger.js"
+    "swagger-autogen": "node dist/src/src/utils/swagger/swagger.js",
+    "docker-compose": "docker-compose up"
   },
   "bin": {
     "new-migration": ".utils/migration/migration.ts"
@@ -35,6 +36,7 @@
     "winston": "^3.8.2"
   },
   "dependencies": {
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "fs-extra": "^11.1.1",
     "inquirer": "^9.1.5",

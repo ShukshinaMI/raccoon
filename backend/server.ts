@@ -47,7 +47,7 @@ class Server {
       .catch((error: any) => logger.error(`Error connected with Database ${error}`));
   }
 
-  public start = (port: number) => {
+  public start = (port?: string) => {
     const server = http.createServer(this.app);
 
     return new Promise((resolve, reject) => {
@@ -59,7 +59,9 @@ class Server {
         .on("error", (error: Object) => {
           reject(error);
           logger.error(`Error listen port: ${error}`);
-        });
+        }).on('uncaughtException', function (err) {
+        console.log(err);
+      });
     });
   };
 }

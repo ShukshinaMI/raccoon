@@ -1,3 +1,5 @@
+import {environment} from "../environments/environments";
+
 interface DBClient {
   user: string;
   password: string | undefined;
@@ -11,11 +13,11 @@ interface DBClient {
 }
 
 const dbClient: DBClient = {
-  user: "postgres",
-  host: "localhost",
-  database: "raccoon",
-  password: "",
-  port: 5432,
+  user: environment.user,
+  host: environment.host,
+  database: environment.database,
+  password: environment.password,
+  port: environment.dbPort,
   ssl: false,
   max: 20,
   connectionTimeoutMillis: 0,
