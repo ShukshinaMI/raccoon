@@ -1,4 +1,5 @@
 import swaggerJSDoc from "swagger-jsdoc";
+import {environment} from "../../environments/environments";
 
 export const swaggerOptions: swaggerJSDoc.Operation = {
   definition: {
@@ -9,7 +10,7 @@ export const swaggerOptions: swaggerJSDoc.Operation = {
     },
     servers: [
       {
-        url: "http://localhost:5002",
+        url: `http://localhost:${environment.port}`,
       },
     ],
   },
