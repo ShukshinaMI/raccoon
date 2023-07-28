@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import getPool from "../dbconfig/dbconnector";
 import { requestErrorLogger, requestSuccessLogger } from "../utils/logger/loggerHelper";
 import { validate, ValidationError } from "class-validator";
-import PostDto from "../models/post.dto";
 import AddPostDto from "../models/addPost.dto";
 import UpdatePostDto from "../models/updatePost.dto";
+import PostDto from "../models/post.dto";
 
 class PostsController {
   private readonly pool;

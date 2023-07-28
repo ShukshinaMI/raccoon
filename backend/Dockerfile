@@ -1,10 +1,26 @@
-FROM node:14.18.1
+FROM node:14.18.1 AS builder
 
-WORKDIR /usr/src/app
+WORKDIR /backend/src/app
 
-COPY ["package*.json", "tsconfig.json", ".env" , "./"]
+COPY package*.json ./
 
-COPY . .
 RUN npm install
+
+COPY ./ ./
+
+RUN npm run build
+
+
+
+
+FROM node:14.18.1 AS production
+
+WORKDIR /backend/src/app
+
+COPY --from=builder /backend/src/app/package*.json ./
+
+RUN npm i --omit=dev
+
+COPY --from=builder /backend/src/app/dist ./dist
 
 CMD npm run start-server
