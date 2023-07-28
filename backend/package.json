@@ -10,7 +10,7 @@
     "build": "npx tsc",
     "start-server": "node dist/src/app.js",
     "dev-start-server": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/app.js\"",
-    "swagger-autogen": "node dist/src/src/utils/swagger/swagger.js",
+    "swagger-autogen": "node dist/src/utils/swagger/swagger.js",
     "docker-compose": "docker-compose up"
   },
   "bin": {
