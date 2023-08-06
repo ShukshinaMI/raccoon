@@ -4,7 +4,7 @@ services:
   api:
     container_name: api
     image: api
-    restart: on-failure
+    restart: on-failure:3
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
       - ${PORT}:${PORT}
     environment:
       - DB_USER=${DB_USER}
-      - DB_HOST=postgres
+      - DB_HOST=db
       - DB_NAME=${DB_NAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_PORT=${DB_PORT}
@@ -21,7 +21,7 @@ services:
   db:
     container_name: db
     image: postgres
-    restart: on-failure
+    restart: on-failure:3
     ports:
       - '5433:${DB_PORT}'
     volumes:

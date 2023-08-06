@@ -1,4 +1,4 @@
-FROM node:14.18.1 AS builder
+FROM node:14.18.1-alpine
 
 WORKDIR /backend/src/app
 
@@ -6,21 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ./ ./
+COPY ./ /backend/src/app
 
 RUN npm run build
 
-
-
-
-FROM node:14.18.1 AS production
-
-WORKDIR /backend/src/app
-
-COPY --from=builder /backend/src/app/package*.json ./
-
-RUN npm i --omit=dev
-
-COPY --from=builder /backend/src/app/dist ./dist
-
-CMD npm run start-server
+CMD [ "npm", "run", "start-server" ]
