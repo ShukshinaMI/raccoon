@@ -1,4 +1,5 @@
-FROM node:14.18.1 AS builder
+#stage 1: build
+FROM node:14.18.1-alpine AS builder
 
 WORKDIR /frontend/src/app
 
@@ -6,21 +7,16 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ./ .
+COPY ./ /frontend/src/app
 
 RUN npm run build
 
 
 
+# stage 2: deploy and hosting
+FROM nginx:alpine
 
-FROM node:14.18.1 AS production
+WORKDIR /usr/share/nginx/html
 
-WORKDIR /frontend/src/app
-
-COPY --from=builder /frontend/src/app/package*.json ./
-
-RUN npm i --omit=dev
-
-COPY --from=builder /frontend/src/app/ ./
-
-CMD npm run start
+COPY --from=builder /frontend/src/app/nginx.conf /etc/nginx/templates/default.conf.template
+COPY --from=builder /frontend/src/app/build .

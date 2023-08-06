@@ -8,7 +8,7 @@
   "main": "server.ts",
   "scripts": {
     "build": "npx tsc",
-    "start-server": "node dist/src/app.js",
+    "start-server": "node dist/app.js",
     "dev-start-server": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/app.js\"",
     "swagger-autogen": "node dist/src/utils/swagger/swagger.js",
     "docker-compose": "docker-compose up"
