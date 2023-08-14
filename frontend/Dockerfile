@@ -6,21 +6,16 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ./ .
+COPY ./ /frontend/src/app
 
 RUN npm run build
 
+FROM nginx
+
+WORKDIR /usr/share/nginx/html
+
+COPY --from=builder /frontend/src/app/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /frontend/src/app/build .
 
 
 
-FROM node:14.18.1 AS production
-
-WORKDIR /frontend/src/app
-
-COPY --from=builder /frontend/src/app/package*.json ./
-
-RUN npm i --omit=dev
-
-COPY --from=builder /frontend/src/app/ ./
-
-CMD npm run start

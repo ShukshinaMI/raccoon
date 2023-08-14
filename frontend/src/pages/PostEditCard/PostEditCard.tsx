@@ -55,7 +55,7 @@ export const PostEditCard = ({ isEdit }: PostEditCardProps) => {
     setLoading(true);
     if (id) {
       apiClient.api
-        .updatePostData(Number(id), {
+        .updatePostData( {
           postId: Number(id),
           title: values.title,
           description: values.description,
@@ -66,7 +66,11 @@ export const PostEditCard = ({ isEdit }: PostEditCardProps) => {
         .finally(() => setLoading(true));
     } else {
       apiClient.api
-        .addPostData(values)
+        .addPostData({
+          title: values.title,
+          description: values.description,
+          tags: [],
+        })
         .then(() => navigateBack())
         .finally(() => setLoading(true));
     }

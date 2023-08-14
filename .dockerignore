@@ -1,0 +1,15 @@
+# Deps
+frontend/src/app/node_modules/
+backend/src/app/node_modules/
+
+# Docker
+frontend/src/app/Dockerfile
+backend/src/app/Dockerfile
+
+# logs
+backend/src/app/src/logs/
+
+# IDE Files
+.idea/
+.vscode
+.DS_Store

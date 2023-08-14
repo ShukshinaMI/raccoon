@@ -5,7 +5,7 @@ import { swaggerOptions } from "./swaggerOptions";
 
 const swaggerDocs = (app: Express) => {
   const swaggerSpec = swaggerJsdoc(swaggerOptions);
-  app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
   app.get("swagger-docs.json", (_req: Request, res: Response) => {
     res.setHeader("Content-type", "application/json");

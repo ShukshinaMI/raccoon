@@ -71,8 +71,6 @@
 │    ├── package.json
 │    ├── package-lock.json
 │    └── tsconfig.json
-├── raccoon.sql
-├── UML.drawio
 └── README.md
 ```
 
@@ -96,3 +94,6 @@
 
 ## Доступ к документации API
 После запуска серверной части можно будет [посмотреть swagger](http://localhost:${port}/api)
+
+## Запуск docker приложения
+`docker compose up`

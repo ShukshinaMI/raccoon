@@ -32,14 +32,14 @@ export interface UserModel {
 
 export class Api {
   api = {
-    getPostsData: async (data: { searchString: string; searchType: string }) => axios.post("/posts", data),
+    getPostsData: async (data: { searchString: string; searchType: string }) => axios.post("/api/posts", data),
 
-    getPostData: async (id: number) => axios.get(`/posts/${id}`),
+    getPostData: async (id: number) => axios.get(`/api/posts/${id}`),
 
-    addPostData: async (postData: AddPostModel) => axios.post(`/posts/add`, postData),
+    addPostData: async (postData: AddPostModel) => axios.post(`/api/posts/add`, postData),
 
-    updatePostData: async (id: number, postData: UpdatePostModel) => axios.patch(`/posts/update`, postData),
+    updatePostData: async (postData: UpdatePostModel) => axios.patch(`/api/posts/update`, postData),
 
-    deletePostData: async (id: number) => axios.delete(`/posts/delete/${id}`),
+    deletePostData: async (id: number) => axios.delete(`/api/posts/delete/${id}`),
   };
 }

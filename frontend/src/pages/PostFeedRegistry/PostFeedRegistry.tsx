@@ -14,7 +14,7 @@ export const PostFeedRegistry = observer(() => {
   useEffect(() => {
     apiClient.api
       .getPostsData({ searchString: appStore.searchString, searchType: appStore.searchType })
-      .then((result) => setPosts(result.data));
+      .then((result) => setPosts(result.data || []));
   }, [refresher, appStore.searchString, appStore.searchType]);
 
   return (

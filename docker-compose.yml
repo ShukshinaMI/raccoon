@@ -4,20 +4,20 @@ services:
   app:
     container_name: frontend
     image: frontend
-    restart: on-failure
+    restart: always
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:3001"
+      - "80:80"
     volumes:
       - ./frontend:/app
     depends_on:
-      - api
-  api:
+      - backend
+  backend:
     container_name: backend
     image: backend
-    restart: on-failure
+    restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
       - ${PORT}:${PORT}
     environment:
       - DB_USER=${DB_USER}
-      - DB_HOST=postgres
+      - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_PORT=${DB_PORT}
@@ -36,13 +36,12 @@ services:
   db:
     container_name: db
     image: postgres
-    restart: on-failure
+    restart: always
     env_file:
       - .env
     ports:
       - '5433:${DB_PORT}'
     volumes:
-      - ./db.sql:/docker-entrypoint-init.d/db.sql
       - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=${DB_USER}

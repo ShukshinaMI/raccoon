@@ -47,7 +47,7 @@ function CardPost({ post, refresh, className }: CardFormProps) {
 
   const onSetLike = (e: any) => {
     setLoading(true);
-    apiClient.api.updatePostData(post.postId, { ...mapPostToUpdatePostData(), likes: post.likes + 1 }).then(() => {
+    apiClient.api.updatePostData({ ...mapPostToUpdatePostData(), likes: post.likes + 1 }).then(() => {
       refresh();
       setLoading(false);
     });

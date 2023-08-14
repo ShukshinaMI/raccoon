@@ -7,9 +7,6 @@ interface DBClient {
   host: string;
   port: number;
   ssl: boolean;
-  max: number;
-  connectionTimeoutMillis: number;
-  idleTimeoutMillis: number;
 }
 
 const dbClient: DBClient = {
@@ -19,9 +16,6 @@ const dbClient: DBClient = {
   password: environment.password,
   port: environment.dbPort,
   ssl: false,
-  max: 20,
-  connectionTimeoutMillis: 0,
-  idleTimeoutMillis: 0,
 };
 
 export default dbClient;

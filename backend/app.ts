@@ -9,7 +9,7 @@ const starter = new Server()
   .start(port)
   .then((port) => {
     logger.info(`Server running 'http://localhost:${port}'`);
-    logger.info(`Swagger running 'http://localhost:${port}/api'`);
+    logger.info(`Swagger running 'http://localhost:${port}/swagger'`);
   })
   .catch((error) => logger.error(error));
 

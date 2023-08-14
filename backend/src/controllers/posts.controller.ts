@@ -45,12 +45,13 @@ class PostsController {
         ? `SELECT * FROM posts WHERE LOWER(title) LIKE LOWER('%${searchString}%')`
         : `SELECT * FROM posts WHERE '${searchString}'= ANY(tags)`;
 
-    this.pool.query(sql, [], (error, { rows }) => {
-      if (error) {
+    this.pool.query(sql, [], (error, result) => {
+      if (error || !result) {
         PostsController.requestError(res, method, originalUrl, error);
         return;
       }
 
+      const { rows } = result;
       requestSuccessLogger(method, originalUrl);
       const posts = rows.map((row) => new PostDto(row));
       return res.send(posts);
